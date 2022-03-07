@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-02);
+}
+
+body.dark{
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #8444c4;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #FFF;
+    --text-color: #CCC;
+}
+
+:root{
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #8444c4;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+/*
+
+///////////////////////////////
+        Feito por: Ilan                             
+//////////////////////////////
+
+*/
+
+
+/*-----------------Sidebar-------------------*/
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px; 
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+}
+
+.sidebar.close{
+    width: 88px;
+}
+
+/*-----------------CSS Reutilizável------------------*/
+
+.sidebar .texto{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-04);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar.close .conteudo-perfil{
+    opacity: 0;
+}
+
+
+.sidebar.close .perfil img{
+    position: relative;
+    top: -20px;
+    left: 15px;
+}
+
+.sidebar .imagem{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+    
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar .imagem-texto img{
+    width: 55px;
+    border-radius: 6px;
+}
+
+.sidebar header .imagem-texto{
+    display: flex;
+    align-items: center;
+}
+
+header .imagem-texto .texto-header{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.texto-header .nomeApp{
+    font-weight: 600;
+}
+
+.texto-header .funcionalidade{
+    margin-top: -3px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+
+.sidebar .search-box{
+    background: var(--primary-color-light);
+    border-radius: 6px;
+}
+
+.search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+    
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+    
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .modo{
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+.menu-bar .modo .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .modo i{
+    position: absolute;
+}
+
+.menu-bar .modo i.sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .modo i.moon{
+    opacity: 0;
+}
+
+body.dark .menu-bar .modo i.sun{
+    opacity: 1;
+}
+
+.menu-bar .modo .toggle-switch{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color--light);
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before{
+    left: 25px;
+
+}
+
+/*----------------Perfil---------------*/
+
+.sidebar .conteudo-perfil{
+    position: absolute;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.sidebar .conteudo-perfil .perfil{
+    /* border-top: thin solid; */
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background: var(--primary-color);
+}
+
+
+
+.conteudo-perfil .perfil .detalhes-perfil{
+    display: flex;
+    align-items: center;
+}
+
+.perfil .detalhes-perfil img{
+    height: 45px;
+    width: 45px;
+    object-fit: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.perfil .detalhes-perfil .nome-emprego{
+    margin-left: 10px;
+}
+
+.perfil .detalhes-perfil .nome{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.perfil .detalhes-perfil .trampo{
+    font-size: 12px;
+}
+
+.perfil .bx-log-out{
+    position: absolute;
+    left: 90%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px; 
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+/*
+
+------------Fim da Sidebar-----------
+
+*/
+
+.first-block{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 240px);
+    left: 240px;
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.first-block .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 25px 0 0 400px;
+    color: var(--text-color);
+}
+
+.sidebar.close ~ .first-block{
+    left: 88px;
+    width: calc(100% - 88px);
+}
